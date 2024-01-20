@@ -20,3 +20,4 @@ def setup(request):
         driver.get("https://www.saucedemo.com/")
         yield
         driver.close()
+
