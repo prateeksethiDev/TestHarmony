@@ -43,3 +43,10 @@ Utilize Pytest fixtures to set up and manage test preconditions. Fixtures ensure
    ```bash
    git clone https://github.com/yourusername/TestHarmony.git
    cd TestHarmony
+   
+
+### How to execute the automation suite
+
+This will create html report for the automation run. 
+   ```bash
+    pytest -v -s --html=report.html
