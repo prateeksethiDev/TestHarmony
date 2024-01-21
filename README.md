@@ -52,3 +52,12 @@ Utilize Pytest fixtures to set up and manage test preconditions. Fixtures ensure
 This will create html report for the automation run. 
    ```bash
     pytest -v -s --html=report.html
+```
+
+### Running Tests with Custom Browser Name
+You have the option to customize test execution by specifying the browser name using a command-line option.
+
+To run tests with a custom browser name, you can use the following command:
+
+```bash
+pytest --browser_name <desired_browser_name>

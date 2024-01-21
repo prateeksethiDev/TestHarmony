@@ -9,6 +9,13 @@ def pytest_addoption(parser):
         "--browser_name", action="store", default="chrome"
     )
 
+    parser.addoption(
+        "--environment",
+        action="store",
+        default="qa",
+        help="Specify the environment (e.g., dev, staging, qa)"
+    )
+
 
 @pytest.fixture(scope="class")
 def setup(request):
