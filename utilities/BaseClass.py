@@ -1,6 +1,9 @@
+import inspect
+import logging
 import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -28,5 +31,18 @@ class BaseClass:
             dynamic_locator = (By.CSS_SELECTOR, locator_string)
         elif locator_type == "xpath":
             dynamic_locator = (By.XPATH, locator_string)
-
         return dynamic_locator
+
+    def select_options_by_text(locator, text):
+        sel = Select(locator)
+        sel.select_by_visible_text(text)
+
+    def create_logger(self):
+        logger_name=inspect.stack()[1][3]
+        logger = logging.getLogger(logger_name)
+        fileHandler = logging.FileHandler('logfile.log')
+        formatter = logging.Formatter("%(asctime)s :%(levelname)s : %(name)s: %(message)s")
+        fileHandler.setFormatter(formatter)
+        logger.addHandler(fileHandler)
+        logger.setLevel(logging.DEBUG)
+        return logger

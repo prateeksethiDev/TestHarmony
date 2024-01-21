@@ -18,7 +18,7 @@ Enjoy detailed and insightful logging to track the execution flow of your test s
 
 ### 3. Data Parametrization
 
-Parameterize your test data effortlessly using Pyxl. Test Harmony supports dynamic data-driven testing, allowing you to run the same test scenario with different input values, enhancing test coverage.
+Parameterize your test data effortlessly using Pyxl or using Pytest fixtures. Test Harmony supports dynamic data-driven testing, allowing you to run the same test scenario with different input values, enhancing test coverage.
 
 ### 4. Pytest Integration
 
@@ -35,6 +35,8 @@ Utilize Pytest fixtures to set up and manage test preconditions. Fixtures ensure
 - Python 3.x installed
 - Pip (Python package installer)
 - ChromeDriver or GeckoDriver (depending on your browser choice)
+- pip install -U pytest
+- pip install pytest-html
 
 ### Installation
 

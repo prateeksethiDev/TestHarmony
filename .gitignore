@@ -1,0 +1,4 @@
+*.html
+*.log
+testData/__init__.py
+*.pyc
