@@ -45,7 +45,9 @@ Utilize Pytest fixtures to set up and manage test preconditions. Fixtures ensure
    ```bash
    git clone https://github.com/yourusername/TestHarmony.git
    cd TestHarmony
-   
+2. Install dependencies using requirements.txt:
+   ```bash
+   pip install -r requirements.txt
 
 ### How to execute the automation suite
 
@@ -61,3 +63,5 @@ To run tests with a custom browser name, you can use the following command:
 
 ```bash
 pytest --browser_name <desired_browser_name>
+
+Supported browser names: edge, chrome, or firefox.
