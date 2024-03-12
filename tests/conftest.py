@@ -21,7 +21,8 @@ def pytest_addoption(parser):
     )
 
 
-@pytest.fixture(scope="class")
+# factory design pattern for creation of different driver instance abstracted behing webdriver.
+@pytest.fixture(scope="session")
 def setup(request):
     browser_name = request.config.getoption("browser_name")
     if browser_name.lower() == "chrome":
@@ -34,8 +35,9 @@ def setup(request):
         raise ValueError("Unsupported browser name: {}".format(browser_name))
 
     driver.maximize_window()
-    request.cls.driver = driver
-    driver.get("https://www.saucedemo.com/")
-    yield
-    driver.close()
 
+    # dependency injection design pattern
+    # request.cls.driver = driver
+    driver.get("https://www.saucedemo.com/")
+    yield driver
+    driver.quit()
