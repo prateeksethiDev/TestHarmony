@@ -7,8 +7,13 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-@pytest.mark.usefixtures("setup")
 class BaseClass:
+    driver = None
+
+    @pytest.fixture(scope="session", autouse=True)
+    def set_driver(self, request, setup):
+        # Set the driver attribute of BaseClass with the driver instance from setup
+        BaseClass.driver = setup
 
     def verify_link_presence(self, linktext, timeout=10):
         WebDriverWait(self.driver, timeout).until(ec.presence_of_element_located((By.LINK_TEXT, linktext)))
@@ -33,7 +38,7 @@ class BaseClass:
             dynamic_locator = (By.XPATH, locator_string)
         return dynamic_locator
 
-    def select_options_by_text(locator, text):
+    def select_options_by_text(self,locator, text):
         sel = Select(locator)
         sel.select_by_visible_text(text)
 
